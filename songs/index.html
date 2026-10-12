@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Song For Your Person</title>
+<meta name="description" content="A one-of-a-kind song written from your memories, your inside jokes, and the way you love them. Written by Nik.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@400;500&display=swap">
+<style>
+/* Layout: plum hero (brand dark page) → cream body sections → plum form block; single brand look, light pages per Evolve With Nik standard */
+:root{
+  --oat:#F2E8D6; --paper:#FBF5EA; --plum:#5A2440; --plum-deep:#241220; --wine:#3A222A;
+  --terra:#A85A3C; --ink:#3A2A2E; --gold:#C8A24E; --gold-pill:#D2AF5A; --blush:#F6E4EA;
+  --cream:#F7EEDF; --muted:#7A6560; --line:#E2D3BA;
+  --display:"Playfair Display", Georgia, serif;
+  --body:"Lora", Georgia, serif;
+  --ui:"Poppins", system-ui, -apple-system, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--oat);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;font-weight:400}
+b,strong{font-weight:400}
+img{max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+.eyebrow{font-family:var(--ui);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--ui);font-size:.95rem;letter-spacing:.03em;padding:15px 30px;border-radius:999px;background:var(--gold-pill);color:var(--plum-deep);text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:hover{background:var(--gold);transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn.ghost:hover{background:rgba(200,162,78,.12)}
+.listen{display:inline-flex;align-items:center;gap:10px;font-family:var(--ui);font-size:.92rem;color:var(--terra);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px;align-self:flex-start}
+.listen:hover{color:var(--plum)}
+.listen:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--plum-deep) 0%,var(--wine) 55%,var(--plum) 100%);color:var(--cream);padding-block:28px 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -40% auto;width:520px;height:520px;border-radius:50%;border:1px solid rgba(200,162,78,.25);pointer-events:none}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:64px;flex-wrap:wrap}
+.nav .mark{font-family:var(--display);font-size:1.15rem;color:var(--cream)}
+.nav .mark span{color:var(--gold)}
+.nav a.small{font-family:var(--ui);font-size:.82rem;color:var(--gold);text-decoration:none;letter-spacing:.06em}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.02;margin-top:14px;color:var(--cream)}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .lede{font-size:1.15rem;max-width:34em;margin-top:22px;color:#EADFD2}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:32px}
+.hero .note{font-family:var(--ui);font-size:.8rem;color:#C9B6AC}
+.lyric{border-left:1px solid var(--gold);padding:6px 0 6px 22px;font-family:var(--display);font-style:italic;font-size:1.35rem;line-height:1.5;color:var(--cream)}
+.lyric small{display:block;font-family:var(--ui);font-style:normal;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:14px}
+
+/* deadline ribbon */
+.ribbon{background:var(--blush);color:var(--plum);text-align:center;font-family:var(--ui);font-size:.88rem;padding:12px 20px;letter-spacing:.02em}
+
+/* sections */
+section.block{padding-block:80px}
+.head{display:flex;flex-direction:column;gap:12px;max-width:640px;margin-bottom:44px}
+.head .eyebrow{color:var(--terra)}
+.head h2{font-size:clamp(1.9rem,4.5vw,2.7rem);line-height:1.15;color:var(--plum)}
+.rule{height:1px;background:var(--gold);opacity:.6;border:0;margin:0}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.step{display:flex;flex-direction:column;gap:10px;min-width:0}
+.step .num{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--gold)}
+.step h3{font-size:1.3rem;color:var(--plum)}
+
+/* pricing */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.price{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.price.feature{background:var(--plum);color:var(--cream);border-color:var(--plum);position:relative}
+.price .tag{font-family:var(--ui);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra)}
+.price.feature .tag{color:var(--gold)}
+.price h3{font-size:1.45rem;color:var(--plum)}
+.price.feature h3{color:var(--cream)}
+.price .amt{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--plum)}
+.price.feature .amt{color:var(--gold)}
+.price ul{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-direction:column;gap:8px}
+.price li{padding-left:20px;position:relative}
+.price li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--gold)}
+.price .pick{margin-top:auto;padding-top:14px}
+.price .pick a{font-family:var(--ui);font-size:.88rem;color:var(--terra);text-decoration:none;letter-spacing:.03em}
+.price.feature .pick a{color:var(--gold)}
+.price .pick a:hover{text-decoration:underline}
+
+/* occasions */
+.occasions{background:var(--paper)}
+.occ{display:flex;flex-wrap:wrap;gap:10px}
+.occ span{font-family:var(--ui);font-size:.9rem;padding:9px 18px;border:1px solid var(--gold);border-radius:999px;color:var(--plum)}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.about blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,3.5vw,2.1rem);line-height:1.35;color:var(--plum)}
+.about .copy{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+/* faq */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:16px;font-family:var(--display);font-size:1.15rem;color:var(--plum)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--ui);color:var(--gold);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:2px solid var(--terra);outline-offset:4px}
+.faq details p{padding-bottom:20px;max-width:46em}
+
+/* form */
+.order{background:linear-gradient(170deg,var(--plum-deep),var(--wine));color:var(--cream);padding-block:80px}
+.order .head .eyebrow{color:var(--gold)}
+.order .head h2{color:var(--cream)}
+.order .head p{color:#EADFD2}
+form{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px;max-width:820px}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-family:var(--ui);font-size:.82rem;letter-spacing:.04em;color:var(--gold)}
+label .opt{color:#B9A79C}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--cream);background:rgba(247,238,223,.06);border:1px solid rgba(200,162,78,.45);border-radius:4px;padding:13px 14px;width:100%}
+textarea{min-height:130px;resize:vertical;line-height:1.6}
+select option{color:var(--ink);background:var(--paper)}
+input::placeholder,textarea::placeholder{color:#9C8A86}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);background:rgba(247,238,223,.1)}
+.radios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.radios label{display:flex;flex-direction:column;gap:2px;border:1px solid rgba(200,162,78,.45);border-radius:4px;padding:14px;cursor:pointer;color:var(--cream);font-size:.92rem;letter-spacing:.01em}
+.radios label small{color:var(--gold);font-size:.8rem}
+.radios input{position:absolute;opacity:0;width:1px;height:1px}
+.radios label:has(input:checked){border-color:var(--gold);background:rgba(200,162,78,.14)}
+.radios label:has(input:focus-visible){outline:2px solid var(--cream);outline-offset:2px}
+.check{display:flex;gap:10px;align-items:flex-start;font-family:var(--body);font-size:.95rem;color:#EADFD2;letter-spacing:0}
+.check input{width:18px;height:18px;margin-top:4px;flex:none;accent-color:var(--gold)}
+.submit-row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.status{font-family:var(--ui);font-size:.9rem}
+.status.ok{color:var(--gold)}
+.status.err{color:#F2B8A0}
+.honey{display:none}
+.thanks{display:none;max-width:620px;border:1px solid var(--gold);border-radius:6px;padding:32px}
+.thanks h3{font-size:1.8rem;color:var(--cream);margin-bottom:10px}
+.thanks p{color:#EADFD2}
+.alt{font-family:var(--ui);font-size:.85rem;color:#C9B6AC;margin-top:28px}
+.alt span{color:var(--gold);user-select:all}
+
+footer{background:var(--plum-deep);color:#B9A79C;font-family:var(--ui);font-size:.8rem;padding-block:28px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer span.g{color:var(--gold)}
+
+@media (max-width:820px){
+  .hero-grid,.about{grid-template-columns:1fr;gap:36px}
+  .steps,.prices{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .radios{grid-template-columns:1fr}
+  .nav{margin-bottom:44px}
+  section.block,.order{padding-block:60px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav">
+      <div class="mark">Songs <span>by</span> Nik</div>
+      <a class="small" href="https://soundcloud.com/nik-the-lyricist" target="_blank" rel="noopener">Listen on SoundCloud</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Custom songs · written from your memories</p>
+        <h1>A song for <em>your person.</em></h1>
+        <p class="lede">You tell me about them. I write the song. A one-of-a-kind song built from your memories, your inside jokes, and the way you love them.</p>
+        <div class="cta-row">
+          <a class="btn" href="#order">Request my song</a>
+          <a class="btn ghost" href="https://soundcloud.com/nik-the-lyricist" target="_blank" rel="noopener">Hear my songs</a>
+          <span class="note">Delivered in 7 days · From $100</span>
+        </div>
+      </div>
+      <div class="lyric">
+        Weddings, anniversaries, a mom's birthday, a gift for your kids. Some feelings deserve more than a card.
+        <small>Songwriter behind "My Forever"</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ribbon">Christmas orders: request by December 15 for delivery before Christmas.</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps from your memories to their song</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><h3>Tell me about them</h3><p>Fill out the short request form below. Share a few memories, inside jokes, and what you love about them.</p></div>
+      <div class="step"><span class="num">2</span><h3>I write the song</h3><p>I write every lyric myself from what you share, then bring it to life as a full song in the vibe you choose.</p></div>
+      <div class="step"><span class="num">3</span><h3>You give the gift</h3><p>Within 7 days you get your song as an MP3 to keep and share, plus the lyrics as a keepsake PDF.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="block" id="pricing">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Choose your song</p>
+      <h2>Simple pricing, written just for them</h2>
+    </div>
+    <div class="prices">
+      <div class="price">
+        <span class="tag">Words only</span>
+        <h3>Lyric Letter</h3>
+        <div class="amt">$100</div>
+        <ul><li>Custom lyrics written about your person</li><li>Keepsake PDF, ready to frame or print</li><li>Delivered in 7 days</li></ul>
+        <div class="pick"><a href="#order" data-pkg="Lyric Letter ($100)">Choose Lyric Letter</a></div>
+      </div>
+      <div class="price feature">
+        <span class="tag">Most loved</span>
+        <h3>Custom Song</h3>
+        <div class="amt">$300</div>
+        <ul><li>A full produced song, about 2 minutes</li><li>MP3 to keep and share</li><li>Lyrics as a keepsake PDF</li><li>One round of changes included</li><li>Delivered in 7 days</li></ul>
+        <div class="pick"><a href="#order" data-pkg="Custom Song ($300)">Choose Custom Song</a></div>
+      </div>
+      <div class="price">
+        <span class="tag">Need it fast</span>
+        <h3>Rush Song</h3>
+        <div class="amt">$350</div>
+        <ul><li>Everything in the Custom Song</li><li>Delivered in 72 hours</li><li>For last-minute moments</li></ul>
+        <div class="pick"><a href="#order" data-pkg="Rush Song ($350)">Choose Rush Song</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block occasions">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Perfect for</p>
+      <h2>Any moment that deserves a song</h2>
+    </div>
+    <div class="occ">
+      <span>Weddings</span><span>First dance</span><span>Anniversaries</span><span>Mom's birthday</span><span>Christmas gifts</span><span>Valentine's Day</span><span>A song for your kids</span><span>Proposals</span><span>Graduations</span><span>Memorials</span>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap about">
+    <blockquote>I write about love, faith, and becoming who you're meant to be. Now I'll write about the people you love.</blockquote>
+    <div class="copy">
+      <p class="eyebrow" style="color:var(--terra)">About Nik</p>
+      <p>I'm a songwriter from Florida and a mother of two boys. I write music for women's empowerment under the artist name Alisha Inari, including the wedding song "My Forever," streaming on Spotify and Apple Music.</p>
+      <p>Every custom song starts the same way: your words, your memories, and a blank page. I write every lyric myself. Music and vocals are produced with AI tools, so your song arrives fully finished and ready to share.</p>
+      <a class="listen" href="https://soundcloud.com/nik-the-lyricist" target="_blank" rel="noopener">&#9654;&nbsp; Listen to my songs and jingles on SoundCloud</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="block">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Questions</p>
+      <h2>Good to know before you order</h2>
+    </div>
+    <div class="faq">
+      <details><summary>How do I pay?</summary><p>After you send your request, I'll email you within 24 hours to confirm the details and send your payment link. Writing begins once payment is received.</p></details>
+      <details><summary>Who sings the song?</summary><p>I write every lyric myself. The music and vocals are produced with AI tools, which lets me deliver a fully finished song in days instead of weeks.</p></details>
+      <details><summary>What if I want something changed?</summary><p>The Custom Song and Rush Song include one round of changes. Tell me what to adjust and I'll update it.</p></details>
+      <details><summary>Can I share it online or play it at my event?</summary><p>Yes. Your song is yours to play at your wedding, share with family, and post on your personal social media.</p></details>
+      <details><summary>How much should I tell you?</summary><p>The more real details you share, the more personal the song. Names, nicknames, where you met, a funny moment, a hard season you got through together. Those details make a song feel like it could only be about them.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Request your song</p>
+      <h2>Tell me about your person</h2>
+      <p>Fill this out and I'll email you within 24 hours to confirm details and send your payment link.</p>
+    </div>
+
+    <form id="songForm" novalidate>
+      <!-- Web3Forms access key for requests@jingleswithnik.com -->
+      <input type="hidden" name="access_key" value="bd29fc2c-114b-4f6d-be08-a1ee2d3a3105">
+      <input type="hidden" name="subject" value="New song request — A Song For Your Person">
+      <input type="hidden" name="from_name" value="Songs by Nik">
+      <input type="checkbox" name="botcheck" class="honey" tabindex="-1" autocomplete="off">
+
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="field full">
+        <label>Choose your song</label>
+        <div class="radios" role="radiogroup">
+          <label><input type="radio" name="package" value="Lyric Letter ($100)">Lyric Letter<small>$100 · lyrics only</small></label>
+          <label><input type="radio" name="package" value="Custom Song ($300)" checked>Custom Song<small>$300 · full song</small></label>
+          <label><input type="radio" name="package" value="Rush Song ($350)">Rush Song<small>$350 · 72 hours</small></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="for_who">Who is the song for?</label>
+        <input id="for_who" name="song_for" type="text" placeholder="Their name or nickname" required>
+      </div>
+      <div class="field">
+        <label for="relationship">Your relationship</label>
+        <input id="relationship" name="relationship" type="text" placeholder="Husband, mom, best friend, son..." required>
+      </div>
+
+      <div class="field">
+        <label for="occasion">Occasion</label>
+        <select id="occasion" name="occasion" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Wedding / first dance</option><option>Anniversary</option><option>Birthday</option><option>Christmas gift</option><option>Valentine's Day</option><option>For my kids</option><option>Proposal</option><option>Memorial</option><option>Just because</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="vibe">Song vibe</label>
+        <select id="vibe" name="vibe" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Slow R&amp;B</option><option>Gospel / inspirational</option><option>Upbeat and fun</option><option>Soft acoustic</option><option>Surprise me</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label for="memories">Tell me 3 to 5 memories, inside jokes, or things you love about them</label>
+        <textarea id="memories" name="memories" placeholder="Where you met, a nickname only you use, a moment you'll never forget..." required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="needed_by">When do you need it?</label>
+        <input id="needed_by" name="needed_by" type="date" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone <span class="opt">(optional)</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+
+      <div class="field full">
+        <label class="check"><input type="checkbox" id="share_ok" name="ok_to_share_clip" value="Yes">You can share a short clip of my song online (no last names).</label>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn" type="submit" id="submitBtn">Send my request</button>
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <h3>Your request is in.</h3>
+      <p>Thank you for trusting me with your person's story. I'll email you within 24 hours to confirm the details and send your payment link. Keep an eye on your inbox (and your spam folder, just in case).</p>
+    </div>
+
+    <p class="alt">Want to hear my style first? <a href="https://soundcloud.com/nik-the-lyricist" target="_blank" rel="noopener" style="color:var(--gold)">Listen on SoundCloud</a>.<br>Questions? Email <span>requests@jingleswithnik.com</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Songs by Nik · Jingles With Nik</span>
+    <span>Lyrics written by Nik · Music and vocals produced with AI tools · <span class="g">requests@jingleswithnik.com</span></span>
+  </div>
+</footer>
+
+<script>
+// Pricing links preselect the package
+document.querySelectorAll("[data-pkg]").forEach(a=>{
+  a.addEventListener("click",()=>{
+    const r=document.querySelector(`input[name="package"][value="${a.dataset.pkg}"]`);
+    if(r) r.checked=true;
+  });
+});
+
+// Earliest "needed by" date is today
+try{document.getElementById("needed_by").min=new Date().toISOString().split("T")[0]}catch(e){}
+
+const form=document.getElementById("songForm");
+const status=document.getElementById("status");
+const btn=document.getElementById("submitBtn");
+
+form.addEventListener("submit",async(e)=>{
+  e.preventDefault();
+  status.className="status";status.textContent="";
+  const missing=[...form.querySelectorAll("[required]")].find(el=>!el.value.trim());
+  if(missing){status.className="status err";status.textContent="Please fill in every field so I can write your song.";missing.focus();return}
+  const em=form.email.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){status.className="status err";status.textContent="Please check your email address.";form.email.focus();return}
+
+  btn.disabled=true;btn.textContent="Sending...";
+  try{
+    const res=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)});
+    const data=await res.json();
+    if(data.success){
+      form.style.display="none";
+      document.getElementById("thanks").style.display="block";
+    }else{throw new Error(data.message||"failed")}
+  }catch(err){
+    status.className="status err";
+    status.textContent="Your request didn't send. Please try again, or email requests@jingleswithnik.com.";
+    btn.disabled=false;btn.textContent="Send my request";
+  }
+});
+</script>
+</body>
+</html>
